@@ -1,7 +1,6 @@
-import HomePage from "./components/HomePage";
 
-export const Data = () => {
-  const categories = [
+
+export const cocktailCategories = [
     { title: "Classic", path: "/cocktails/classic", photo: "" },
     { title: "Vodka", path: "/cocktails/vodka", photo: "" },
     { title: "Gin", path: "/cocktails/gin", photo: "" },
@@ -13,9 +12,3 @@ export const Data = () => {
     { title: "Spritz", path: "/cocktails/spritz", photo: "" },
   ];
 
-  return (
-    <div>
-      <HomePage categories={categories}/>
-    </div>
-  );
-};

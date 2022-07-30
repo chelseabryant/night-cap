@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 
 import "./App.css";
 
+
 import Routes from "./Routes";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           </li>
         </ul>
         <Routes />
+   
       </div>
     </Router>
   );

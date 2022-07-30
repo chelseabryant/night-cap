@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { Data } from "../Data";
+import { cocktailCategories } from "../Data";
+
 
 
 export default function CocktailsPage() {
@@ -12,15 +13,15 @@ export default function CocktailsPage() {
 
   return (
     <div>
-      <h1>{routeParams.category}</h1>
+      <h1>{routeParams.category[0].toUpperCase() +
+       routeParams.category.slice(1)}</h1>
 
       <ul>
-        <li>
-          <Link to={`/cocktails/classic-cocktails`}>Classic Cocktails</Link>
-        </li>
-        {/* <li>
-          <Link to={`/cocktails/props-v-state`}>Props v. State</Link>
-        </li> */}
+        {cocktailCategories.map((item) => (
+          <li>
+            <Link to={item.path}>{item.title}</Link>
+          </li>
+        ))}
       </ul>
     </div>
   );
