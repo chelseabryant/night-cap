@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { cocktailCategories } from "../../Data";
+import { cocktailCategories } from "../../data/data";
 import { useState } from "react";
 import BarCart from "./BarCart";
 import CocktailBuilder from "./CocktailBuilder";
@@ -13,20 +13,18 @@ export default function HomeBarPage() {
     if (newItem && !cartItems.includes(newItem))
       setCartItems([...cartItems, newItem]);
   };
-
   const updateIngredients = (newIngredient) => {
     if (newIngredient && !ingredients.includes(newIngredient))
       setIngredients([...ingredients, newIngredient]);
   };
 
-  console.log(ingredients);
   return (
     <div>
       <div>Home Bar Page</div>
 
       <ul>
         {cocktailCategories.map((item) => (
-          <li>
+          <li key={item.path}>
             <Link to={item.path}>{item.title}</Link>
           </li>
         ))}
@@ -36,6 +34,7 @@ export default function HomeBarPage() {
       <ul>
         {cartItems.map((item) => (
           <CartItem
+            key={item}
             item={item}
             cartItems={cartItems}
             setCartItems={setCartItems}
@@ -45,6 +44,7 @@ export default function HomeBarPage() {
       <CocktailBuilder updateIngredients={updateIngredients} />
       {ingredients.map((item) => (
         <Ingredient
+          key={item}
           item={item}
           ingredients={ingredients}
           setIngredients={setIngredients}

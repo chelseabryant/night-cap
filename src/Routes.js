@@ -1,6 +1,6 @@
 import { Routes as AllRoutes, Route } from "react-router-dom";
 
-import CocktailsPage from "./components/CocktailsPage";
+import CocktailsPage from "./components/cocktails-page/CocktailsPage";
 import HomeBarPage from "./components/home-bar-page/HomeBarPage";
 import HomePage from "./components/homepage/HomePage";
 

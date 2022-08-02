@@ -20,6 +20,7 @@ export default function CocktailBuilder({ updateIngredients }) {
         onChange={addIngredient}
       />
       <button onClick={onAddClick}>Add</button>
+      <button>Shake it up!</button>
     </div>
   );
 }

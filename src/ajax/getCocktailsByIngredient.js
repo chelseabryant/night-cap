@@ -1,8 +1,8 @@
 
 
-export async function getCocktailsByIngredient() {
+export async function getCocktailsByIngredient(ingredient) {
     const response = await fetch(
-        "https://thecocktaildb.com/api/json/v1/1/search.php?i=vodka"
+        `https://thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`
     )
     return response.json()
 }

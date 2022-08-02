@@ -9,6 +9,6 @@ export const cocktailCategories = [
     { title: "Rum", path: "/cocktails/rum", photo: "" },
     { title: "Scotch", path: "/cocktails/scotch", photo: "" },
     { title: "Brandy", path: "/cocktails/brandy", photo: "" },
-    { title: "Spritz", path: "/cocktails/spritz", photo: "" },
+    { title: "Spritz", path: "/cocktails/spritz?name=true", photo: "" },
   ];
 
