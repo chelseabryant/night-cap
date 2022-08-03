@@ -20,7 +20,7 @@ export default function HomeBarPage() {
 
   return (
     <div>
-      <div>Home Bar Page</div>
+      <h1>Home Bar Page</h1>
 
       <ul>
         {cocktailCategories.map((item) => (

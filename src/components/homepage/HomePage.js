@@ -23,9 +23,8 @@ export default function HomePage() {
       </Link>
       <ul>
         {cocktailCategories.map((item) => (
-          <li>
-            <img src={item.photo} className="cocktail-image" />
-            <Link to={item.path}>{item.title}</Link>
+          <li key={item.title}>
+            <Link to={item.path}><img src={item.photo} className="cocktail-image" />{item.title}</Link>
           </li>
         ))}
       </ul>
