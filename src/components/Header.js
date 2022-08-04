@@ -7,7 +7,9 @@ import Modal from "./Modal";
 export default function Header() {
   const [isOpened, setIsOpened] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem("current_user"))
-
+/* isAuthenticated will return a boolean. the useState ^ argment is seeing if there is
+    a key item called user_name in the local storage, then evaluates to true or false.
+    The console.log on line 19 will log is true or false.*/
 
 
 const logOut = () => {
@@ -16,6 +18,8 @@ const logOut = () => {
 }
 console.log("header: ", isAuthenticated);
 
+/* When wanting to do an 'if' statement in the jsx return, need to make it
+    a ternary operator. example below*/
   return (
     <div>
       <Link to="/">Night Cap</Link>

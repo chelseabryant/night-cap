@@ -13,6 +13,7 @@ export default function Modal({ isOpened, onClose, children }) {
 
   const preventAutoClose = (e) => e.stopPropagation();
 
+  // todo: {children}? (below) how does it work
   return (
     <dialog className="modal" ref={ref} onCancel={onClose} onClick={onClose}>
       <div onClick={preventAutoClose}>

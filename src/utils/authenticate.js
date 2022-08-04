@@ -1,4 +1,5 @@
 var bcrypt = require("bcryptjs");
+// todo: how are email and passowrd passed from "Login.js", not default func?
 export function authenticate(email, password) {
   //   const emailHash = localStorage.getItem(email);
   //   const parsedHash = JSON.parse(emailHash)
@@ -6,9 +7,12 @@ export function authenticate(email, password) {
 
   const hash = JSON.parse(localStorage.getItem(email)).hash;
   const isAuthenticated = bcrypt.compareSync(password, hash);
+  // isAuthenticated 's value is a boolean, password === hash
   if  (isAuthenticated) {
+    // This stores the users email and stays logged in. inside () = key: value
     localStorage.setItem('current_user', email)
   }
+  // todo: where does this value return
   return isAuthenticated
 }
 

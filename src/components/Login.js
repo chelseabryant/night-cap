@@ -21,13 +21,19 @@ export default function Login({ setIsAuthenticated, isAuthenticated }) {
       createAccount(email, password);
       setIsAuthenticated(true);
     } else {
+        // todo: does this mean if authenticated has value = true? or if email/pw is correct
       const authenticated = authenticate(email, password);
       if (authenticated) {
         setIsAuthenticated(true);
       }
     }
   };
+/* Line 57: onClick is changing isCreating to the opposite value. Not to false
+    or it will not change back to true. Use bang(!) operator to onClick change
+    the value to the opposite of what it is currently. */
 
+    /* Line 57: button type='button', needed for this button because it is inside
+        the form and form will make any button a type='submit' as a default*/
   return (
     <>
       {isAuthenticated ? (
