@@ -57,7 +57,6 @@ export default function CocktailsPage() {
       setCocktails(fullData);
     }
   };
-  console.log("COCkltAIL", cocktails);
 
   useEffect(() => {
     fetchCocktails();
