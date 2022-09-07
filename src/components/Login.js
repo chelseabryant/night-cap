@@ -1,38 +1,38 @@
-import React, { useState } from "react";
-import { authenticate, createAccount } from "../utils/authenticate";
+import React, { useState } from "react"
+import { authenticate, createAccount } from "../utils/authenticate"
 
 export default function Login({ setIsAuthenticated, isAuthenticated }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isCreating, setIsCreating] = useState(true);
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [isCreating, setIsCreating] = useState(true)
 
   const emailInput = (e) => {
-    setEmail(e.target.value);
-  };
+    setEmail(e.target.value)
+  }
 
   const passwordInput = (e) => {
-    setPassword(e.target.value);
-  };
+    setPassword(e.target.value)
+  }
 
   const onSubmit = (e) => {
-    // preventDefault prevents form from refreshing the page when it submits
-    e.preventDefault();
+    // preventDefault s form from refreshing the page when it submits
+    e.preventDefault()
     if (isCreating) {
-      createAccount(email, password);
-      setIsAuthenticated(true);
+      createAccount(email, password)
+      setIsAuthenticated(true)
     } else {
-        // todo: does this mean if authenticated has value = true? or if email/pw is correct
-      const authenticated = authenticate(email, password);
+      // todo: does this mean if authenticated has value = true? or if email/pw is correct
+      const authenticated = authenticate(email, password)
       if (authenticated) {
-        setIsAuthenticated(true);
+        setIsAuthenticated(true)
       }
     }
-  };
-/* Line 57: onClick is changing isCreating to the opposite value. Not to false
+  }
+  /* Line 57: onClick is changing isCreating to the opposite value. Not to false
     or it will not change back to true. Use bang(!) operator to onClick change
     the value to the opposite of what it is currently. */
 
-    /* Line 57: button type='button', needed for this button because it is inside
+  /* Line 57: button type='button', needed for this button because it is inside
         the form and form will make any button a type='submit' as a default*/
   return (
     <>
@@ -62,5 +62,5 @@ export default function Login({ setIsAuthenticated, isAuthenticated }) {
         </form>
       )}
     </>
-  );
+  )
 }

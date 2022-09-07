@@ -12,7 +12,7 @@ export function authenticate(email, password) {
     // This stores the users email and stays logged in. inside () = key: value
     localStorage.setItem('current_user', email)
   }
-  // todo: where does this value return
+  // todo: does this send the value (true/false) to Login.js line 26?
   return isAuthenticated
 }
 

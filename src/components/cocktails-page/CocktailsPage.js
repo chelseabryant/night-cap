@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams, useSearchParams } from "react-router-dom";
-import { getCocktailsByName } from "../../ajax/getCocktailByName";
-import { getCocktailsByIngredient } from "../../ajax/getCocktailsByIngredient";
-import { cocktailCategories } from "../../data/data";
-import CocktailInfo from "./CocktailInfo";
+import React, { useEffect, useState } from "react"
+import { Link, useParams, useSearchParams } from "react-router-dom"
+import { getCocktailsByName } from "../../ajax/getCocktailByName"
+import { getCocktailsByIngredient } from "../../ajax/getCocktailsByIngredient"
+import { cocktailCategories } from "../../data/data"
+import CocktailInfo from "./CocktailInfo"
 
 export default function CocktailsPage() {
-  const [cocktails, setCocktails] = useState([]);
-  const routeParams = useParams();
-  const [queryParams] = useSearchParams();
+  const [cocktails, setCocktails] = useState([])
+  const routeParams = useParams()
+  const [queryParams] = useSearchParams()
 
   const fetchCocktailByName = async (name) => {
-    const data = await getCocktailsByName(name);
-    return data;
-  };
+    const data = await getCocktailsByName(name)
+    return data
+  }
 
   const fetchCocktails = async () => {
     if (queryParams.get("name") === "true") {
-      const data = await getCocktailsByName(routeParams.category);
-      setCocktails(data.drinks);
-      console.log(data);
+      const data = await getCocktailsByName(routeParams.category)
+      setCocktails(data.drinks)
+      console.log(data)
     } else {
       /* Searches the API for a cocktail with a specific ingredient.
       Need to use the cocktail names this provides to get more data about each cocktail. */
@@ -42,25 +42,25 @@ export default function CocktailsPage() {
           through the array.
        13. When .map() had gone through the whole array and holds every object that it was passed in an array, it will pass that value(the array)
           to "fullData", updating the value of fullData to be an array of objects. */
-      const data = await getCocktailsByIngredient(routeParams.category);
-      // console.log('data: ', data)
+      const data = await getCocktailsByIngredient(routeParams.category)
+      console.log("data: ", data)
       const fullData = await Promise.all(
         data.drinks.map(async (drink) => {
-          const fetchResponse = await fetchCocktailByName(drink.strDrink);
-          return fetchResponse.drinks[0];
+          const fetchResponse = await fetchCocktailByName(drink.strDrink)
+          return fetchResponse.drinks[0]
         })
-      );
+      )
       // fullData = [{..}. {..}, {..}]
       // {..} = {drinks: [{this is a cocktail object}]}
 
       // cocktails needs to be in this shape [{cocktail object}]
-      setCocktails(fullData);
+      setCocktails(fullData)
     }
-  };
+  }
 
   useEffect(() => {
-    fetchCocktails();
-  }, []);
+    fetchCocktails()
+  }, [])
 
   return (
     <div>
@@ -82,5 +82,5 @@ export default function CocktailsPage() {
         ))}
       </div>
     </div>
-  );
+  )
 }
